@@ -1,8 +1,9 @@
 import GameSavingLoader from '../js/GameSavingLoader';
+import GameSaving from '../js/GameSave';
 
 test('Promise test', async () => {
   const data = await GameSavingLoader.load();
-  expect(data).toEqual({
+  const expectedGameSave = new GameSaving({
     id: 9,
     created: 1546300800,
     userInfo: {
@@ -12,4 +13,5 @@ test('Promise test', async () => {
       points: 2000,
     },
   });
+  expect(data).toEqual(expectedGameSave);
 });
